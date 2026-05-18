@@ -89,9 +89,20 @@ N> Configure the appropriate [Interactive render mode](https://learn.microsoft.c
 
 ## Install Syncfusion<sup style="font-size:70%">&reg;</sup> Blazor packages
 
-Install [Syncfusion.Blazor.PivotTable](https://www.nuget.org/packages/Syncfusion.Blazor.PivotTable) and [Syncfusion.Blazor.Themes](https://www.nuget.org/packages/Syncfusion.Blazor.Themes/) NuGet packages in your project using the NuGet Package Manager in Visual Studio (*Tools → NuGet Package Manager → Manage NuGet Packages for Solution*), or the integrated terminal in Visual Studio Code (`dotnet add package`), or the .NET CLI.
+Install [Syncfusion.Blazor.PivotTable](https://www.nuget.org/packages/Syncfusion.Blazor.PivotTable/) and [Syncfusion.Blazor.Themes](https://www.nuget.org/packages/Syncfusion.Blazor.Themes/) NuGet packages using the NuGet Package Manager in Visual Studio (*Tools → NuGet Package Manager → Manage NuGet Packages for Solution*).
 
-Alternatively, run the following commands in the Package Manager Console to achieve the same.
+The packages can also be installed using the integrated terminal in Visual Studio Code or the .NET CLI. Run the following commands in the integrated terminal (<kbd>Ctrl</kbd>+<kbd>`</kbd>) or command line:
+
+{% tabs %}
+{% highlight c# tabtitle=".NET CLI" %}
+
+dotnet add package Syncfusion.Blazor.PivotTable --version {{ site.releaseversion }}
+dotnet add package Syncfusion.Blazor.Themes --version {{ site.releaseversion }}
+
+{% endhighlight %}
+{% endtabs %}
+
+To install via Package Manager Console, run the following commands:
 
 {% tabs %}
 {% highlight C# tabtitle="Package Manager" %}
@@ -169,6 +180,8 @@ N> If the **Interactivity Location** is set to `Global` with `Auto` or `WebAssem
 {% tabs %}
 {% highlight razor tabtitle="Home.razor" %}
 
+@using Syncfusion.Blazor.PivotView
+
 <SfPivotView TValue="ProductDetails"></SfPivotView>
 
 {% endhighlight %}
@@ -183,7 +196,7 @@ For demonstration purposes, a collection of objects containing sales details for
 {% tabs %}
 {% highlight razor tabtitle="Home.razor" %}
 
-@page "/"
+@using Syncfusion.Blazor.PivotView
 
 <SfPivotView TValue="ProductDetails">
     <PivotViewDataSourceSettings DataSource="@dataSource">
@@ -316,7 +329,7 @@ To define each field in its respective axis, configure the following basic prope
 {% tabs %}
 {% highlight razor tabtitle="Home.razor" %}
 
-@page "/"
+@using Syncfusion.Blazor.PivotView
 
 <SfPivotView TValue="ProductDetails" Height="300">
     <PivotViewDataSourceSettings DataSource="@dataSource">
@@ -347,6 +360,28 @@ To define each field in its respective axis, configure the following basic prope
 {% endhighlight %}
 {% endtabs %}
 
+## Run the application
+
+Execute the application using any of the following methods:
+
+**Visual Studio or Visual Studio Code:**
+
+Press <kbd>Ctrl</kbd>+<kbd>F5</kbd> (Windows) or <kbd>⌘</kbd>+<kbd>F5</kbd> (macOS) to launch the application.
+
+**.NET CLI:**
+
+Run the following command in the integrated terminal (<kbd>Ctrl</kbd>+<kbd>`</kbd>) or command line to build and run the application:
+
+{% tabs %}
+{% highlight c# tabtitle=".NET CLI" %}
+
+dotnet run
+
+{% endhighlight %}
+{% endtabs %}
+
+This will render the Syncfusion<sup style="font-size:70%">&reg;</sup> Blazor Pivot Table component in your default web browser.
+
 ## Applying formatting to a value field
 
 Formatting enhances the readability and presentation of numerical data in a Pivot Table, making it more user-friendly and professional. For example, you can display values with currency symbols or adjust the number of decimal places for greater clarity.
@@ -360,7 +395,7 @@ N> Formatting can only be applied to numeric fields in the value section of the 
 {% tabs %}
 {% highlight razor tabtitle="Home.razor" %}
 
-@page "/"
+@using Syncfusion.Blazor.PivotView
 
 <SfPivotView TValue="ProductDetails" Height="300">
     <PivotViewDataSourceSettings DataSource="@dataSource">
@@ -394,8 +429,6 @@ N> Formatting can only be applied to numeric fields in the value section of the 
 {% endhighlight %}
 {% endtabs %}
 
-* Press <kbd>Ctrl</kbd>+<kbd>F5</kbd> (Windows) or <kbd>⌘</kbd>+<kbd>F5</kbd> (macOS) to launch the application. This will render the Syncfusion<sup style="font-size:70%">&reg;</sup> Blazor Pivot Table component in the default web browser like below.
-
 {% previewsample "https://blazorplayground.syncfusion.com/embed/LDhSNEZeilHoDpvq?appbar=false&editor=false&result=true&errorlist=false&theme=bootstrap5" backgroundimage "[Blazor PivotTable with Formatting](images/blazor-pivottable-formatting.webp)" %}
 
 ## Enable Field List
@@ -407,7 +440,7 @@ To enable the field list, set the [ShowFieldList](https://help.syncfusion.com/cr
 {% tabs %}
 {% highlight razor tabtitle="Home.razor" %}
 
-@page "/"
+@using Syncfusion.Blazor.PivotView
 
 <SfPivotView TValue="ProductDetails" ShowFieldList="true" Height="300">
     <PivotViewDataSourceSettings DataSource="@dataSource">
@@ -452,7 +485,7 @@ Users can also use the grouping bar to sort, filter, or remove fields quickly wi
 {% tabs %}
 {% highlight razor tabtitle="Home.razor" %}
 
-@page "/"
+@using Syncfusion.Blazor.PivotView
 
 <SfPivotView TValue="ProductDetails" ShowGroupingBar="true" Height="300">
     <PivotViewDataSourceSettings DataSource="@dataSource">
@@ -497,7 +530,7 @@ The following example shows how to add a field to the filter axis in a Blazor Pi
 {% tabs %}
 {% highlight razor tabtitle="Home.razor" %}
 
-@page "/"
+@using Syncfusion.Blazor.PivotView
 
 <SfPivotView TValue="ProductDetails" ShowGroupingBar="true" ShowFieldList="true" Height="300">
     <PivotViewDataSourceSettings DataSource="@dataSource">
@@ -550,7 +583,7 @@ Below is a sample code that shows how to set up calculated fields both through c
 {% tabs %}
 {% highlight razor tabtitle="Home.razor" %}
 
-@page "/"
+@using Syncfusion.Blazor.PivotView
 
 <SfPivotView TValue="ProductDetails" ShowFieldList="true" AllowCalculatedField="true" Height="300">
     <PivotViewDataSourceSettings DataSource="@dataSource">
@@ -601,7 +634,7 @@ The following code example shows how to display a server-side error message to t
 {% tabs %}
 {% highlight razor tabtitle="Home.razor" %}
 
-@page "/"
+@using Syncfusion.Blazor.PivotView
 
 <span class="error">@ErrorDetails</span>
 <SfPivotView TValue="PivotViewData" Width="100%" Height="450" AllowDataCompression="true" EnableVirtualization="true" ShowFieldList="true" ShowGroupingBar="true" MaxNodeLimitInMemberEditor="50">
